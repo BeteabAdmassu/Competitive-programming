@@ -1,0 +1,17 @@
+function gradingStudents(grades) {
+    // Write your code here
+ 
+  let finalGrade = []
+    for(let i = 0 ; i< grades.length; i++)
+    {   if(grades[i] <= 100 && grades[i]>= 0){
+        if(grades[i]>37)
+          {
+              let diff = 5 - (grades[i]% 5)
+              diff < 3? finalGrade.push(grades[i] + diff): finalGrade.push(grades[i])
+          }
+        else
+         finalGrade.push(grades[i])
+    }
+    }
+ return finalGrade
+}
