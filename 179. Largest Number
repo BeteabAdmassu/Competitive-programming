@@ -1,0 +1,17 @@
+var largestNumber = function(nums) {
+
+nums = nums.toString();
+let temp = nums.split(",")
+ 
+    for(let i = 0; i < temp.length; i++)
+         for(let j = i + 1; j <= temp.length - 1; j++ )
+              if( Number(temp[j].concat(temp[i])) >
+                        Number(temp[i].concat(temp[j]))  ){ 
+                        let x = temp[i]
+                        temp[i] = temp[j]
+                        temp[j] = x;
+                                                                                                }
+return Number(temp.join("")) == 0? "0": temp.join("")
+
+    
+};
