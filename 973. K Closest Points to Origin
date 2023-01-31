@@ -1,28 +1,17 @@
 var kClosest = function(points, k) {
-   
-  let distance = points.map(item => Math.sqrt(Math.pow(item[0],2)+Math.pow(item[1],2)))
+
+  let index = []
   let final = []
+    
+       for(let i = 0 ; i < points.length ; i++) 
+              index.push(Math.sqrt(Math.pow(points[i][0],2) + Math.pow(points[i][1],2)))
+       for(let i = 0 ; i < k ; i++){ 
+          final.push(points[index.indexOf(Math.min(...index))])
+          index.splice(index.indexOf(Math.min(...index)),1,Number.POSITIVE_INFINITY)
+          
+        }
 
-  for (let i = 0; i < distance.length; i++) {
-    for (let j = i; j < distance.length; j++) {
-      if (distance[i] > distance[j]) {
-      // SORTING BOTH ARRAYS
-        let temp = distance[i];
-        distance[i] = distance[j];
-        distance[j] = temp;
-        temp = points[i];
-        points[i] = points[j];
-        points[j] = temp;
-    }
-  }
-}
 
-  
-  for(let i = 0 ; i < k ; i++) final.push(points[i])
- // final.push(points[distance.indexOf(Math.min(...distance))])
- // distance.splice(distance.indexOf(Math.min(...distance)) ,1,Math.max(...distance)+1)
-      
- 
-    return final
-   
+return final   
+       
 };
