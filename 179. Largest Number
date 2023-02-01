@@ -14,4 +14,4 @@ let temp = nums.split(",")
 return Number(temp.join("")) == 0? "0": temp.join("")
 
     
-};
+}
