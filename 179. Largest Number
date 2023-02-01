@@ -1,17 +1,13 @@
 var largestNumber = function(nums) {
+nums.sort((a,b) => {
+    const ab = a.toString() + b.toString()
+    const ba = b.toString() + a.toString()
+    return ba - ab
+})
 
-nums = nums.toString();
-let temp = nums.split(",")
- 
-    for(let i = 0; i < temp.length; i++)
-         for(let j = i + 1; j <= temp.length - 1; j++ )
-              if( Number(temp[j].concat(temp[i])) >
-                        Number(temp[i].concat(temp[j]))  ){ 
-                        let x = temp[i]
-                        temp[i] = temp[j]
-                        temp[j] = x;
-                                                                                                }
-return Number(temp.join("")) == 0? "0": temp.join("")
+if(nums.join("") == 0)
+return "0"
+else
+return nums.join("")
 
-    
-}
+};
