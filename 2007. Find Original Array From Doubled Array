@@ -1,0 +1,17 @@
+var findOriginalArray = function(changed) {
+    changed.sort((a,b) => a - b)
+    let numZ = changed.filter( value => value === 0).length
+
+       if( numZ % 2 === 0 && changed.length % 2 === 0  )
+              for(let i  = 0 ; i < changed.length ; i++)
+              {
+                 if( changed.indexOf(changed[i]*2) === -1)
+                  return []
+                 else if(changed.indexOf(changed[i]*2) > -1 )
+                  changed.splice(changed.indexOf(changed[i] * 2),1)
+               }
+          
+        else 
+        return []
+  return changed  
+};
