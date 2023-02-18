@@ -1,0 +1,24 @@
+var checkArithmeticSubarrays = function(nums, l, r) {
+   
+   let answer = new Array(l.length).fill(true);
+   let key = 0;
+     
+       for(let i = 0 ; i < l.length ; i++)
+       {
+               const result = [];
+    for (let i = 0; i < l.length; i++) {
+        const left = l[i], right = r[i];
+        const subArray = nums.slice(left, right + 1);
+        subArray.sort((a, b) => a - b);
+        const diff = subArray[1] - subArray[0];
+        let isArithmetic = true;
+        for (let j = 2; j < subArray.length; j++) {
+            if (subArray[j] - subArray[j - 1] !== diff) {
+                isArithmetic = false;
+                break;
+            }
+        }
+        result.push(isArithmetic);
+    }
+    return result;
+}
