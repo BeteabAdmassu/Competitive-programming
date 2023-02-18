@@ -1,0 +1,18 @@
+var maxOperations = function(nums, k) {
+ 
+  const freq = new Map();
+  let count = 0;
+  
+  for (let num of nums) {
+    if (freq.has(k - num) && freq.get(k - num) > 0) {
+      count++;
+      freq.set(k - num, freq.get(k - num) - 1);
+    } else {
+      freq.set(num, (freq.get(num) || 0) + 1);
+    }
+  }
+  
+  return count;
+
+
+};
