@@ -1,20 +1,14 @@
-/**
- * @param {string} s
- * @return {string}
- */
-var sortSentence = function(s) {
+class Solution(object):
+    def sortSentence(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        arr = s.split(" ")
+        word_dictionary = {}
+        for i in arr:
+            position = i[-1]
+            word_dictionary[position] = i[:-1]
+        result = [ word_dictionary[str(i)] for i in range( 1 , len(arr) + 1)]
 
-  let tempArr = s.split(" ")
-  let finalSentence = []
-  let flag = false;
-  
-    for(let i = 0 ; i< 9; i++)
-       for(let j = 0; j<tempArr.length; j++)
-          if(tempArr[j].includes(i+1))
-        finalSentence.push(tempArr[j].slice(0,tempArr[j].length-1))
-                        
-                
-        
-   
-    return finalSentence.join(" ").toString()
-};
+        return " ".join(result)
