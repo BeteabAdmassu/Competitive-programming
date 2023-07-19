@@ -1,20 +1,14 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var targetIndices = function(nums, target) {
-    
-    nums.sort((x,y)=> x-y);
-    let final = []
-    
-    for(let i = 0; i<nums.length; i++)
-        {
-            if(nums[i]>target)
-                break
-            else if(nums[i] == target)
-                final.push(i)
-        }
-    return final
-    
-};
+class Solution(object):
+    def targetIndices(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        nums.sort()
+        result = []
+        while target in nums:
+            result.append(nums.index(target))
+            nums[nums.index(target)] = None 
+        return result
+
