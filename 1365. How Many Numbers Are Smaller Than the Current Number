@@ -1,17 +1,15 @@
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var smallerNumbersThanCurrent = function(nums) {
- let count = 0;   
- let smaller = []
-    for(let i = 0 ; i<nums.length; i++){
-        for(let j=0; j<nums.length; j++)
-             if(nums[i]>nums[j]) count++;
-        smaller.push(count)
-        count = 0;
-    }
-    
-    return smaller
-    
-};
+class Solution(object):
+    def smallerNumbersThanCurrent(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        sort = sorted(nums)
+        dictionary = {}
+        for i in nums:
+            dictionary[i] = sort.index(i)
+
+        result = []
+        for i in nums:
+            result.append(dictionary[i])
+        return result     
