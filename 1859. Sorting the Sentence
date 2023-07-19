@@ -4,11 +4,18 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        arr = s.split(" ")
-        word_dictionary = {}
+        arr = s.split()
+        arr.sort(key=lambda x:x[-1])
         for i in arr:
-            position = i[-1]
-            word_dictionary[position] = i[:-1]
-        result = [ word_dictionary[str(i)] for i in range( 1 , len(arr) + 1)]
+            arr[arr.index(i)] = i[:-1]
+        return " ".join(arr)        
+        
 
-        return " ".join(result)
+        # arr = s.split(" ")
+        # word_dictionary = {}
+        # for i in arr:
+        #   position = i[-1]
+        #    word_dictionary[position] = i[:-1]
+        # result = [ word_dictionary[str(i)] for i in range( 1 , len(arr) + 1)]
+
+        # return " ".join(result)
