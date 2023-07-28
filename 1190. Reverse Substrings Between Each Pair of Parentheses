@@ -1,0 +1,16 @@
+class Solution(object):
+    def reverseParentheses(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        stack = []
+        result = list(s)
+
+        for i in range(len(s)):
+            if s[i] == '(':
+                stack.append(i)
+            elif s[i] == ')':
+                start = stack.pop()
+                result[start:i+1] = reversed(result[start:i+1])
+        return "".join([c for c in result if c not in ['(', ')']])
