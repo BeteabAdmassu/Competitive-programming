@@ -9,22 +9,16 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        count = 1
+        count = 0
         tH = head
-        start = 0
 
-        while tH.next != None:
+        while tH:
             tH = tH.next
             count += 1
-        if count == 1:
-            return head
-        if count/2 == 0:
-            start = count/2 + 1
-        else:
-            start = int(math.floor(count/2) )
 
-        for i in range( 0 , start):
+        start = count // 2
+
+        for i in range(start):
             head = head.next
 
         return head
-            
