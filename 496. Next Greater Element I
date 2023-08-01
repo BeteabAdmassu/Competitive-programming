@@ -1,0 +1,28 @@
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        next_greater = {}
+        stack = []
+        ans = []
+
+        for i in range(len(nums2)):
+            temp = nums2.pop()
+            if i == 0:
+                next_greater[temp] = -1
+                stack.append(temp)
+            else:
+                tempstack = stack.pop()
+                if tempstack > temp:
+                    next_greater[temp] = tempstack
+                else:
+                    next_greater[temp] = -1
+                stack.append(temp)
+        
+        for i in nums1:
+            ans.append(next_greater[i])
+
+        return ans
