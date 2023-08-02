@@ -12,3 +12,22 @@ class Solution(object):
             current = current.next
 
         return values == values[::-1]
+
+
+
+#Recursive Solution
+class Solution(object):
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        self.value = []
+        def checkPalindrome(head):
+            if head != None:
+                self.value.append(head.val)
+                return checkPalindrome(head.next)
+            else:
+                return self.value == self.value[::-1]
+        return checkPalindrome(head)
+            
